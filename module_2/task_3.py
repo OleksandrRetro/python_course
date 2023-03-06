@@ -22,7 +22,7 @@ class LettersCount(object):
 
 
 if __name__ == '__main__':
-    file_path: str = "../resources/module_2/letters_count.txt"
+    file_path: str = "module_2/letters_count.txt"
     file_content: str = FileUtils().get_file_content_lower_without_special_chars(file_path)
     LettersCount.print_most_frequent_letter(file_content)
     string_pattern: str = "Python"
