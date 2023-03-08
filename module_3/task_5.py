@@ -1,5 +1,4 @@
 import os
-import grp
 import pwd
 
 from prettytable import PrettyTable
@@ -15,35 +14,21 @@ class UnixLsLaOnPython(object):
     """
 
     @staticmethod
-    def generate_table(data_list: list) -> None:
-        table: PrettyTable = PrettyTable()
-        table.field_names = ["Mode", "Owner", "Group", "Size", "File name"]
-        for item in data_list:
-            table.add_row(item)
-        print(table)
-
-    @staticmethod
-    def do_ls_la():
-        table_list: list = []
-        for item in os.listdir('.'):
-            file_info_list: list = []
-            for st_mode in os.stat(item):
-                file_info_list.append(st_mode)
-                print(f"{item} - {st_mode}")
-
-    @staticmethod
-    def os_stat():
-        stat_info = os.stat('/path')
-        uid = stat_info.st_uid
-        gid = stat_info.st_gid
-        print(uid, gid)
-
-        user = pwd.getpwuid(uid)[0]
-        group = grp.getgrgid(gid)[0]
-        print(user, group)
+    def generate_table(table_instance: PrettyTable, data_list: list) -> PrettyTable:
+        table_instance.field_names = ["Mode", "Owner", "Group", "Size", "File name"]
+        table_instance.add_row(data_list)
+        return table_instance
 
 
 if __name__ == '__main__':
-    # UnixLsLaOnPython.generate_table([["sdfs", "sdfs", "sdfs", "sdfs", "sdfs"]])
-    UnixLsLaOnPython.os_stat()
-
+    table: PrettyTable = PrettyTable()
+    path: str = '.'
+    for item in os.listdir(path):
+        stat_info = os.stat(path)
+        uid = stat_info.st_uid
+        UnixLsLaOnPython.generate_table(table, [stat_info.st_mode,
+                                                pwd.getpwuid(uid).pw_name,
+                                                pwd.getpwuid(uid).pw_gid,
+                                                stat_info.st_size,
+                                                item])
+    print(table)
