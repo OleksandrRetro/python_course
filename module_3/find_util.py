@@ -46,7 +46,7 @@ def parse_cmd_args():
         files = False
     if cmd.type == 'f':
         dirs = False
-    return cmd.path, cmd.name, dirs, files
+    return cmd.path, cmd.name.replace('?', '*'), dirs, files
 
 
 if __name__ == '__main__':
