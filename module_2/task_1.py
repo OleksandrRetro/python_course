@@ -1,4 +1,4 @@
-class FizzBuzz(object):
+class FizzBuzz:
     """
     Print integers from 1 to 100
     If (integer % 3 and integer % 5) -> print "FizzBuzz"
@@ -6,8 +6,7 @@ class FizzBuzz(object):
     If integer % 5 -> "Buzz"
     """
 
-    @staticmethod
-    def variant_1() -> None:
+    def variant_1(self) -> None:
         for item in range(1, 101):
             if not item % 3 and not item % 5:
                 print(f"{item} % 3 and {item} % 5 - > FizzBuzz")
@@ -18,8 +17,7 @@ class FizzBuzz(object):
             else:
                 print(f"{item} is not a FizzBuzz value")
 
-    @staticmethod
-    def variant_2() -> None:
+    def variant_2(self) -> None:
         for item in range(1, 101):
             match item:
                 case item if (not item % 3 and not item % 5):
@@ -33,12 +31,13 @@ class FizzBuzz(object):
 
 
 if __name__ == '__main__':
+    instance: FizzBuzz = FizzBuzz()
     # Using IF
     print("VARIANT_1 STARTED")
-    FizzBuzz.variant_1()
+    instance.variant_1()
     print("VARIANT_1 FINISHED")
 
     # Using Match
     print("\nVARIANT_2 STARTED")
-    FizzBuzz.variant_2()
+    instance.variant_2()
     print("VARIANT_2 FINISHED")

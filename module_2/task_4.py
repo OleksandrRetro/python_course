@@ -1,10 +1,9 @@
-class FileSizeConversion(object):
+class FileSizeConversion:
     """
     Function get file size in [Bytes] and convert it to [Kilobyte], [Megabyte], [Gigabyte]
     """
 
-    @staticmethod
-    def __verify_conversion(actual: str, expected: str) -> None:
+    def __verify_conversion(self, actual: str, expected: str) -> None:
         assert actual == expected, "Value {0} is not equals to {1}".format(actual, expected)
 
     def file_size(self, size_in_bytes: int, expected: str) -> None:
@@ -20,10 +19,11 @@ class FileSizeConversion(object):
 
 
 if __name__ == '__main__':
+    instance: FileSizeConversion = FileSizeConversion()
     print("Application is started.")
-    FileSizeConversion().file_size(19, "19.0B")
-    FileSizeConversion().file_size(12345, "12.1Kb")
-    FileSizeConversion().file_size(1101947, "1.1Mb")
-    FileSizeConversion().file_size(572090, "558.7Kb")
-    FileSizeConversion().file_size(999999999999, "931.3Gb")
+    instance.file_size(19, "19.0B")
+    instance.file_size(12345, "12.1Kb")
+    instance.file_size(1101947, "1.1Mb")
+    instance.file_size(572090, "558.7Kb")
+    instance.file_size(999999999999, "931.3Gb")
     print("Application is finished correctly.")

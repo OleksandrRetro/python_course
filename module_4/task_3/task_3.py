@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 
 
-class LoggingAndArgParse(object):
+class LoggingAndArgParse:
     """
     Logging config class.
     """
@@ -33,7 +33,7 @@ class LoggingAndArgParse(object):
         return logger
 
 
-class ImportLibTask3(object):
+class ImportLibTask3:
     """
     [Importlib task]
     Using library [importlib] crate a function to return package path if it installed,
