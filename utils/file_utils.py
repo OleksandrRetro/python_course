@@ -28,3 +28,13 @@ class FileUtils(object):
     def write_json_file(file_path: str, csv_list: list) -> None:
         with open(FileUtils.__RESOURCES_DIR + file_path, 'w') as f:
             f.write(json.dumps(csv_list, indent=2))
+
+    @staticmethod
+    def write_json_file_str(file_path: str, content: str) -> None:
+        with open(FileUtils.__RESOURCES_DIR + file_path, 'w') as f:
+            f.write(content)
+
+    @staticmethod
+    def read_file_to_list(file_path: str) -> list:
+        with open(FileUtils.__RESOURCES_DIR + file_path) as f:
+            return f.read().splitlines()
