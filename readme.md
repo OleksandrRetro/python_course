@@ -4,3 +4,4 @@
 * Module 3 on review
 * Module 4 on review
 * Module 5 on review
+* Module 6 on review
