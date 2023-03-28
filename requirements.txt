@@ -3,3 +3,5 @@ requests
 pytest
 pytest-xdist
 pytest-html
+robotframework
+robotframework-Selenium2Library
