@@ -1,2 +1,5 @@
 prettytable
 requests
+pytest
+pytest-xdist
+pytest-html

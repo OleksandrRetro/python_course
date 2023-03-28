@@ -1,4 +1,5 @@
 import abc
+from abc import ABC
 
 
 class Company(object):
@@ -116,13 +117,13 @@ class Employee(Person):
         return '%s, unemployed'
 
 
-class Engineer(Employee):
+class Engineer(Employee, ABC):
 
     def __init__(self, name, age):
         super().__init__(name, age)
 
 
-class Manager(Employee):
+class Manager(Employee, ABC):
 
     def __init__(self, name, age):
         super().__init__(name, age)
