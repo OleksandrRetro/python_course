@@ -7,3 +7,4 @@
 * Module 6 on review
 * Module 7 on review
 * Module 8 on review (robot framework)
+* Module 9 on review
